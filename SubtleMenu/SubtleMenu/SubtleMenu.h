@@ -25,9 +25,13 @@ typedef NS_ENUM(NSInteger, SubtleMenuPopDirection) {
 @property (nonatomic, assign) BOOL showAccesssory;
 @property (nonatomic, assign) SubtleMenuPopDirection popDirection;
 @property (nonatomic, strong) NSArray *menuItems;
+
 @property (nonatomic, strong) SubtleMenuItem *others;
-@property (nonatomic, strong) NSArray *submenusItems;
-@property (nonatomic, assign) CGFloat cellHeight;
+@property (nonatomic, strong) NSArray *submenuItems;
+
 @property (nonatomic, assign) CGPoint startPoint;
+
+- (void)showInView:(UIView *)view at:(CGPoint)startPoint;
+- (instancetype)initWithMenuItems:(NSArray *)menuItems submenuItems:(NSArray *)submenuItems;
 
 @end

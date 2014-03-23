@@ -24,6 +24,17 @@
 		CBB525FA18DDE81400CC951B /* SubtleMenuTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB525F918DDE81400CC951B /* SubtleMenuTests.m */; };
 		CBB5260618DDE86300CC951B /* SubtleMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB5260518DDE86300CC951B /* SubtleMenu.m */; };
 		CBB5260918DDE87400CC951B /* SubtleMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB5260818DDE87400CC951B /* SubtleMenuItem.m */; };
+		CBBDC72D18DF1D150085243B /* ActionSheetIconCompose@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CBBDC72218DF1D150085243B /* ActionSheetIconCompose@2x.png */; };
+		CBBDC72E18DF1D150085243B /* ActionSheetIconCopy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CBBDC72318DF1D150085243B /* ActionSheetIconCopy@2x.png */; };
+		CBBDC72F18DF1D150085243B /* ActionSheetIconEmail@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CBBDC72418DF1D150085243B /* ActionSheetIconEmail@2x.png */; };
+		CBBDC73018DF1D150085243B /* ActionSheetIconHide@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CBBDC72518DF1D150085243B /* ActionSheetIconHide@2x.png */; };
+		CBBDC73118DF1D150085243B /* ActionSheetIconHideAll@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CBBDC72618DF1D150085243B /* ActionSheetIconHideAll@2x.png */; };
+		CBBDC73218DF1D150085243B /* ActionSheetIconMessage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CBBDC72718DF1D150085243B /* ActionSheetIconMessage@2x.png */; };
+		CBBDC73318DF1D150085243B /* ActionSheetIconOther@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CBBDC72818DF1D150085243B /* ActionSheetIconOther@2x.png */; };
+		CBBDC73418DF1D150085243B /* ActionSheetIconReport@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CBBDC72918DF1D150085243B /* ActionSheetIconReport@2x.png */; };
+		CBBDC73518DF1D150085243B /* ActionSheetIconReshare@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CBBDC72A18DF1D150085243B /* ActionSheetIconReshare@2x.png */; };
+		CBBDC73618DF1D150085243B /* ActionSheetIconSavePhoto@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CBBDC72B18DF1D150085243B /* ActionSheetIconSavePhoto@2x.png */; };
+		CBBDC73718DF1D150085243B /* ActionSheetIconTextMessage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CBBDC72C18DF1D150085243B /* ActionSheetIconTextMessage@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +72,17 @@
 		CBB5260518DDE86300CC951B /* SubtleMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubtleMenu.m; sourceTree = "<group>"; };
 		CBB5260718DDE87400CC951B /* SubtleMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubtleMenuItem.h; sourceTree = "<group>"; };
 		CBB5260818DDE87400CC951B /* SubtleMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubtleMenuItem.m; sourceTree = "<group>"; };
+		CBBDC72218DF1D150085243B /* ActionSheetIconCompose@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ActionSheetIconCompose@2x.png"; sourceTree = "<group>"; };
+		CBBDC72318DF1D150085243B /* ActionSheetIconCopy@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ActionSheetIconCopy@2x.png"; sourceTree = "<group>"; };
+		CBBDC72418DF1D150085243B /* ActionSheetIconEmail@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ActionSheetIconEmail@2x.png"; sourceTree = "<group>"; };
+		CBBDC72518DF1D150085243B /* ActionSheetIconHide@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ActionSheetIconHide@2x.png"; sourceTree = "<group>"; };
+		CBBDC72618DF1D150085243B /* ActionSheetIconHideAll@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ActionSheetIconHideAll@2x.png"; sourceTree = "<group>"; };
+		CBBDC72718DF1D150085243B /* ActionSheetIconMessage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ActionSheetIconMessage@2x.png"; sourceTree = "<group>"; };
+		CBBDC72818DF1D150085243B /* ActionSheetIconOther@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ActionSheetIconOther@2x.png"; sourceTree = "<group>"; };
+		CBBDC72918DF1D150085243B /* ActionSheetIconReport@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ActionSheetIconReport@2x.png"; sourceTree = "<group>"; };
+		CBBDC72A18DF1D150085243B /* ActionSheetIconReshare@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ActionSheetIconReshare@2x.png"; sourceTree = "<group>"; };
+		CBBDC72B18DF1D150085243B /* ActionSheetIconSavePhoto@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ActionSheetIconSavePhoto@2x.png"; sourceTree = "<group>"; };
+		CBBDC72C18DF1D150085243B /* ActionSheetIconTextMessage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ActionSheetIconTextMessage@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +149,7 @@
 				CBB525E018DDE81400CC951B /* Main_iPad.storyboard */,
 				CBB525E318DDE81400CC951B /* ViewController.h */,
 				CBB525E418DDE81400CC951B /* ViewController.m */,
+				CBBDC72118DF1D150085243B /* images */,
 				CBB525E618DDE81400CC951B /* Images.xcassets */,
 				CBB525D218DDE81400CC951B /* Supporting Files */,
 			);
@@ -171,6 +194,24 @@
 				CBB5260818DDE87400CC951B /* SubtleMenuItem.m */,
 			);
 			path = SubtleMenu;
+			sourceTree = "<group>";
+		};
+		CBBDC72118DF1D150085243B /* images */ = {
+			isa = PBXGroup;
+			children = (
+				CBBDC72218DF1D150085243B /* ActionSheetIconCompose@2x.png */,
+				CBBDC72318DF1D150085243B /* ActionSheetIconCopy@2x.png */,
+				CBBDC72418DF1D150085243B /* ActionSheetIconEmail@2x.png */,
+				CBBDC72518DF1D150085243B /* ActionSheetIconHide@2x.png */,
+				CBBDC72618DF1D150085243B /* ActionSheetIconHideAll@2x.png */,
+				CBBDC72718DF1D150085243B /* ActionSheetIconMessage@2x.png */,
+				CBBDC72818DF1D150085243B /* ActionSheetIconOther@2x.png */,
+				CBBDC72918DF1D150085243B /* ActionSheetIconReport@2x.png */,
+				CBBDC72A18DF1D150085243B /* ActionSheetIconReshare@2x.png */,
+				CBBDC72B18DF1D150085243B /* ActionSheetIconSavePhoto@2x.png */,
+				CBBDC72C18DF1D150085243B /* ActionSheetIconTextMessage@2x.png */,
+			);
+			path = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,10 +290,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBBDC73718DF1D150085243B /* ActionSheetIconTextMessage@2x.png in Resources */,
+				CBBDC73518DF1D150085243B /* ActionSheetIconReshare@2x.png in Resources */,
+				CBBDC73118DF1D150085243B /* ActionSheetIconHideAll@2x.png in Resources */,
+				CBBDC73318DF1D150085243B /* ActionSheetIconOther@2x.png in Resources */,
 				CBB525E218DDE81400CC951B /* Main_iPad.storyboard in Resources */,
+				CBBDC73018DF1D150085243B /* ActionSheetIconHide@2x.png in Resources */,
 				CBB525E718DDE81400CC951B /* Images.xcassets in Resources */,
+				CBBDC73418DF1D150085243B /* ActionSheetIconReport@2x.png in Resources */,
 				CBB525DF18DDE81400CC951B /* Main_iPhone.storyboard in Resources */,
 				CBB525D618DDE81400CC951B /* InfoPlist.strings in Resources */,
+				CBBDC72E18DF1D150085243B /* ActionSheetIconCopy@2x.png in Resources */,
+				CBBDC72F18DF1D150085243B /* ActionSheetIconEmail@2x.png in Resources */,
+				CBBDC72D18DF1D150085243B /* ActionSheetIconCompose@2x.png in Resources */,
+				CBBDC73218DF1D150085243B /* ActionSheetIconMessage@2x.png in Resources */,
+				CBBDC73618DF1D150085243B /* ActionSheetIconSavePhoto@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -494,6 +546,7 @@
 				CBB525FF18DDE81400CC951B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CBB5260018DDE81400CC951B /* Build configuration list for PBXNativeTarget "SubtleMenuTests" */ = {
 			isa = XCConfigurationList;
@@ -502,6 +555,7 @@
 				CBB5260218DDE81400CC951B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
