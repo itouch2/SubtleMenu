@@ -11,7 +11,7 @@
 #define kDefaultContentViewCellRect CGRectMake(0, 0, 320.0f, 44.0f)
 #define kDefaultMenuWidth (300.0f)
 #define kInitCellTag (101)
-#define kDefaultArrowWidth  (16)
+#define kDefaultArrowWidth  (12)
 #define kDefaultArrowHeight (10)
 #define kMaxArrowDisappearOffset  (25)
 
@@ -148,7 +148,6 @@ static CAKeyframeAnimation *shrink_animation()
     };
     
     [UIView animateWithDuration:0.1 animations:animations];
-
 }
 
 @end
@@ -157,7 +156,6 @@ static CAKeyframeAnimation *shrink_animation()
 
 @property (nonatomic, strong) NSArray *menuItems;
 @property (nonatomic, strong) NSArray *otherMenuItems;
-@property (nonatomic, assign) SubtleMenuPopDirection popDirection;
 
 @end
 
@@ -222,12 +220,71 @@ static CAKeyframeAnimation *shrink_animation()
 
 @end
 
+
+@interface SubtleArrowView : UIView
+
+@property (nonatomic, strong) CAShapeLayer *arrowLayer;
+@property (nonatomic, assign) SubtleMenuPopDirection popDirection;
+@property (nonatomic, strong) UIImageView *arrowImageView;
+@property (nonatomic, strong) UIImage *arrowImage;
+
+@end
+
+@implementation SubtleArrowView
+
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    if (self = [super initWithFrame:frame])
+    {
+        self.backgroundColor = [UIColor clearColor];
+        
+        self.arrowImageView = [[UIImageView alloc] initWithImage:self.arrowImage];
+        self.arrowImageView.frame = CGRectMake(0, 0, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame));
+        self.arrowImageView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
+        [self addSubview:self.arrowImageView];
+    }
+    return self;
+}
+
+- (UIImage *)arrowImage
+{
+    if (!_arrowImage)
+    {
+        UIGraphicsBeginImageContextWithOptions(CGSizeMake(CGRectGetWidth(self.frame), CGRectGetHeight(self.frame)), NO, [UIScreen mainScreen].scale);
+        
+        [[UIColor whiteColor] setFill];
+        
+        UIBezierPath *path = [UIBezierPath bezierPath];
+        if (self.popDirection == SubtleMenuPopDirectionTop)
+        {
+            [path moveToPoint:CGPointMake(0, 0)];
+            [path addLineToPoint:CGPointMake(CGRectGetWidth(self.frame), 0)];
+            [path addLineToPoint:CGPointMake(CGRectGetWidth(self.frame) / 2, CGRectGetHeight(self.frame))];
+            [path closePath];
+        }
+        else
+        {
+            [path moveToPoint:CGPointMake(CGRectGetWidth(self.frame) / 2, 0)];
+            [path addLineToPoint:CGPointMake(0, CGRectGetHeight(self.frame))];
+            [path addLineToPoint:CGPointMake(CGRectGetWidth(self.frame), CGRectGetHeight(self.frame))];
+            [path closePath];
+        }
+        [path fill];
+        
+        _arrowImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+    }
+    return _arrowImage;
+}
+
+@end
+
 @interface SubtleMenu ()
 
 @property (nonatomic, strong) SubtleContentView *contentView;
+@property (nonatomic, strong) SubtleArrowView *arrowView;
 @property (nonatomic, strong) UIPanGestureRecognizer *panGesture;
 @property (nonatomic, strong) UITapGestureRecognizer *bgTapGesture;
-@property (nonatomic, strong) CAShapeLayer *arrowLayer;
 
 @end
 
@@ -253,7 +310,7 @@ static CAKeyframeAnimation *shrink_animation()
     
     [self addSubview:self.contentView];
     
-    [self.layer addSublayer:self.arrowLayer];
+    [self.contentView addSubview:self.arrowView];
     
     self.panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(panned:)];
     [self.contentView addGestureRecognizer:self.panGesture];
@@ -266,40 +323,20 @@ static CAKeyframeAnimation *shrink_animation()
 {
     if (!_contentView)
     {
-        _contentView = [[SubtleContentView alloc] initWithMenuItems:self.menuItems otherMenuItems:self.submenuItems];
-        _contentView.popDirection = self.popDirection;
+        _contentView = [[SubtleContentView alloc] initWithMenuItems:self.menuItems
+                                                     otherMenuItems:self.submenuItems];
     }
     return _contentView;
 }
 
-- (CAShapeLayer *)arrowLayer
+- (SubtleArrowView *)arrowView
 {
-    if (!_arrowLayer)
+    if (!_arrowView)
     {
-        _arrowLayer = [CAShapeLayer layer];
-        _arrowLayer.frame = CGRectMake(0, 0, kDefaultArrowWidth, kDefaultArrowHeight);
-        
-        CGMutablePathRef path = CGPathCreateMutable();
-        
-        if (self.popDirection == SubtleMenuPopDirectionTop)
-        {
-            CGPathMoveToPoint(path, NULL, 0, 0);
-            CGPathAddLineToPoint(path, NULL, _arrowLayer.bounds.size.width, 0);
-            CGPathAddLineToPoint(path, NULL, _arrowLayer.bounds.size.width / 2, _arrowLayer.bounds.size.height);
-            CGPathAddLineToPoint(path, NULL, 0, 0);
-        }
-        else
-        {
-            CGPathMoveToPoint(path, NULL, 0, 0);
-            CGPathAddLineToPoint(path, NULL, _arrowLayer.bounds.size.width / 2, _arrowLayer.bounds.size.width / 2);
-            CGPathAddLineToPoint(path, NULL, 0, _arrowLayer.bounds.size.height);
-            CGPathAddLineToPoint(path, NULL, _arrowLayer.bounds.size.width, _arrowLayer.bounds.size.height);
-        }
-        
-        _arrowLayer.path = path;
-        _arrowLayer.fillColor = [UIColor whiteColor].CGColor;
+        _arrowView = [[SubtleArrowView alloc] initWithFrame:CGRectMake(0, 0, kDefaultArrowWidth, kDefaultArrowHeight)];
+        _arrowView.popDirection = self.popDirection;
     }
-    return _arrowLayer;
+    return _arrowView;
 }
 
 - (void)showInView:(UIView *)view at:(CGPoint)startPoint
@@ -314,7 +351,9 @@ static CAKeyframeAnimation *shrink_animation()
     self.contentView.layer.anchorPoint = CGPointMake(self.startPoint.x / 320, self.popDirection == SubtleMenuPopDirectionTop ? 1 : 0);
     self.contentView.frame = CGRectMake(0, self.startPoint.y - kDefaultArrowHeight - 44 * self.menuItems.count, 320, 44 * self.menuItems.count);
 
-    self.arrowLayer.frame = CGRectMake(self.startPoint.x - kDefaultArrowWidth / 2, self.startPoint.y - kDefaultArrowHeight, kDefaultArrowWidth, kDefaultArrowHeight);
+    CGPoint converted = [self.contentView convertPoint:CGPointMake(self.startPoint.x - kDefaultArrowWidth / 2, self.startPoint.y - kDefaultArrowHeight) fromView:self];
+    
+    self.arrowView.frame = CGRectMake(converted.x, converted.y, kDefaultArrowWidth, kDefaultArrowHeight);
     
     [self popping];
 }
@@ -369,16 +408,35 @@ static CAKeyframeAnimation *shrink_animation()
         
         if (panned)
         {
+            CGFloat distance = translation.y;
+            
             // pan the subtle menu content view
             CGRect frame = self.contentView.frame;
-            frame.origin.y += translation.y;
+            frame.origin.y += distance;
             self.contentView.frame = frame;
             
             // TODO: animate the arrow
-            
-            frame = self.arrowLayer.frame;
-            frame = CGRectMake(frame.origin.x, frame.origin.y - fabs(translation.y), frame.size.width, frame.size.height);
-            self.arrowLayer.frame = frame;
+            frame = self.arrowView.frame;
+            frame.size.height += fabs(distance);
+            static BOOL finished = YES;
+            if (frame.size.height > 35)
+            {
+                finished = NO;
+                [UIView animateWithDuration:0.15 animations:^{
+                    CGRect frame = self.arrowView.frame;
+                    frame.size.height = 0;
+                    self.arrowView.frame = frame;
+                } completion:^(BOOL finished) {
+                    finished = finished;
+                }];
+            }
+            else
+            {
+                if (finished)
+                {
+                     self.arrowView.frame = frame;
+                }
+            }
         }
         else
         {
